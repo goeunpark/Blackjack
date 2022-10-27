@@ -1,4 +1,6 @@
-from Card import Card # from Card.py, import Card class
+import random
+
+from Card import Card  # from Card.py, import Card class
 
 SUITS = ["Hearts", "Spades", "Diamonds", "Clubs"]
 VALUES = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
@@ -27,5 +29,24 @@ class Deck():
 
         return deck_of_cards
 
+    def shuffle(self):
+        random.shuffle(self.cards)
+        # NOT self.cards.random()
+        return self.cards
+
+
+    def draw_card(self):
+        # engineering decision: will not 
+        drawn_card = self.cards.pop() # <-- WHY IS THIS POPPING OUT RANDOMLY INSTEAD OF AT THE END? 
+        return drawn_card
+
 a_small_deck = Deck()
 print(str(a_small_deck))
+
+print("__________________")
+a_small_deck.shuffle()
+print(str(a_small_deck))
+
+print("__________________")
+print(a_small_deck.draw_card().suit)
+print(a_small_deck.draw_card().value)
