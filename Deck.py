@@ -19,7 +19,7 @@ class Deck():
         description = ""
 
         for card in self.cards:
-            description += (f"{card.value} of {card.suit}, ")
+            description += (f"{card.show_card()}, ")
         
         return description
 
